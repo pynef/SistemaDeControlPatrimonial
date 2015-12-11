@@ -7,9 +7,9 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('catalogo_bienes', '0001_initial'),
-        ('proveedor', '0001_initial'),
-        ('institucion', '0001_initial'),
+        ('Proveedor', '0001_initial'),
+        ('Institucion', '0001_initial'),
+        ('CatalogoBienes', '0001_initial'),
     ]
 
     operations = [
@@ -18,8 +18,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('descripcion', models.TextField()),
-                ('catalogo_de_bien', models.ForeignKey(to='catalogo_bienes.CatalogoDeBien')),
-                ('proveedor', models.ForeignKey(to='proveedor.Proveedor')),
+                ('catalogo_de_bien', models.ForeignKey(to='CatalogoBienes.CatalogoBien')),
+                ('proveedor', models.ForeignKey(to='Proveedor.Proveedor')),
             ],
             options={
                 'db_table': 'Almacen',
@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nombre', models.CharField(max_length=128)),
                 ('descripcion', models.TextField()),
-                ('ambiente', models.ForeignKey(to='institucion.Ambiente')),
+                ('ambiente', models.ForeignKey(to='Institucion.Ambiente')),
             ],
             options={
                 'db_table': 'AsignacionBien',
@@ -69,7 +69,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('descripcion', models.TextField()),
-                ('catalogo_de_bien', models.ForeignKey(to='catalogo_bienes.CatalogoDeBien')),
+                ('catalogo_de_bien', models.ForeignKey(to='CatalogoBienes.CatalogoBien')),
             ],
             options={
                 'db_table': 'Inventario',
@@ -81,7 +81,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nombre', models.CharField(max_length=15)),
-                ('descripcion', models.TextField()),
+                ('descripcion', models.TextField(null=True, blank=True)),
             ],
             options={
                 'db_table': 'TipoAlmacen',
@@ -93,7 +93,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nombre', models.CharField(max_length=15)),
-                ('descripcion', models.TextField()),
+                ('descripcion', models.TextField(null=True, blank=True)),
             ],
             options={
                 'db_table': 'TipoMedida',
@@ -107,8 +107,8 @@ class Migration(migrations.Migration):
                 ('nombre', models.CharField(max_length=128)),
                 ('descripcion', models.TextField()),
                 ('destino', models.TextField(max_length=250)),
-                ('inventario', models.ForeignKey(to='bienes.Inventario')),
-                ('origen', models.ForeignKey(to='institucion.Ambiente')),
+                ('inventario', models.ForeignKey(to='Bienes.Inventario')),
+                ('origen', models.ForeignKey(to='Institucion.Ambiente')),
             ],
             options={
                 'db_table': 'TrasladoBien',
@@ -118,26 +118,26 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='disposicionbien',
             name='inventario',
-            field=models.ForeignKey(to='bienes.Inventario'),
+            field=models.ForeignKey(to='Bienes.Inventario'),
         ),
         migrations.AddField(
             model_name='asignacionbien',
             name='inventario',
-            field=models.ForeignKey(to='bienes.Inventario'),
+            field=models.ForeignKey(to='Bienes.Inventario'),
         ),
         migrations.AddField(
             model_name='altabien',
             name='inventario',
-            field=models.ForeignKey(to='bienes.Inventario'),
+            field=models.ForeignKey(to='Bienes.Inventario'),
         ),
         migrations.AddField(
             model_name='almacen',
             name='tipo_almacen',
-            field=models.ForeignKey(to='bienes.TipoAlmacen'),
+            field=models.ForeignKey(to='Bienes.TipoAlmacen'),
         ),
         migrations.AddField(
             model_name='almacen',
             name='tipo_medida',
-            field=models.ForeignKey(to='bienes.TipoMedida'),
+            field=models.ForeignKey(to='Bienes.TipoMedida'),
         ),
     ]

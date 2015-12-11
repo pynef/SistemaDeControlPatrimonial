@@ -1,13 +1,13 @@
 from django.contrib import admin
 
-from SistemaDeControlPatrimonial.app.bienes.models import TipoMedida
-from SistemaDeControlPatrimonial.app.bienes.models import TipoAlmacen
-from SistemaDeControlPatrimonial.app.bienes.models import Almacen
-from SistemaDeControlPatrimonial.app.bienes.models import Inventario
-from SistemaDeControlPatrimonial.app.bienes.models import AltaBien
-from SistemaDeControlPatrimonial.app.bienes.models import DisposicionBien
-from SistemaDeControlPatrimonial.app.bienes.models import AsignacionBien
-from SistemaDeControlPatrimonial.app.bienes.models import TrasladoBien
+from SistemaDeControlPatrimonial.app.Bienes.models import TipoMedida
+from SistemaDeControlPatrimonial.app.Bienes.models import TipoAlmacen
+from SistemaDeControlPatrimonial.app.Bienes.models import Almacen
+from SistemaDeControlPatrimonial.app.Bienes.models import Inventario
+from SistemaDeControlPatrimonial.app.Bienes.models import AltaBien
+from SistemaDeControlPatrimonial.app.Bienes.models import DisposicionBien
+from SistemaDeControlPatrimonial.app.Bienes.models import AsignacionBien
+from SistemaDeControlPatrimonial.app.Bienes.models import TrasladoBien
 
 
 admin.site.register(TipoMedida)

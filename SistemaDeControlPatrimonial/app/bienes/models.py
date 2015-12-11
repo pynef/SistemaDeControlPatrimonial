@@ -1,18 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
-from SistemaDeControlPatrimonial.app.institucion.models import Institucion
-from SistemaDeControlPatrimonial.app.institucion.models import Sede
-from SistemaDeControlPatrimonial.app.institucion.models import Local
-from SistemaDeControlPatrimonial.app.institucion.models import Ambiente
-from SistemaDeControlPatrimonial.app.contabilidad.models import CuentaContableDivisionaria
-from SistemaDeControlPatrimonial.app.catalogo_bienes.models import CatalogoDeBien
-from SistemaDeControlPatrimonial.app.proveedor.models import Proveedor
+from SistemaDeControlPatrimonial.app.Institucion.models import Institucion
+from SistemaDeControlPatrimonial.app.Institucion.models import Sede
+from SistemaDeControlPatrimonial.app.Institucion.models import Local
+from SistemaDeControlPatrimonial.app.Institucion.models import Ambiente
+from SistemaDeControlPatrimonial.app.Contabilidad.models import CuentaContable
+from SistemaDeControlPatrimonial.app.CatalogoBienes.models import CatalogoBien
+from SistemaDeControlPatrimonial.app.Proveedor.models import Proveedor
 
 
-
+'''
+Este modelo sirve para XXXXXX
+'''
 class TipoMedida(models.Model):
     nombre = models.CharField(max_length=15)
-    descripcion = models.TextField()
+    descripcion = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return '{0}'.format(self.nombre)
@@ -24,7 +26,7 @@ class TipoMedida(models.Model):
 
 class TipoAlmacen(models.Model):
     nombre = models.CharField(max_length=15)
-    descripcion = models.TextField()
+    descripcion = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return '{0}'.format(self.nombre)
@@ -35,7 +37,7 @@ class TipoAlmacen(models.Model):
 
 
 class Almacen(models.Model):
-    catalogo_de_bien = models.ForeignKey(CatalogoDeBien)
+    catalogo_de_bien = models.ForeignKey(CatalogoBien)
     proveedor = models.ForeignKey(Proveedor)
     tipo_medida = models.ForeignKey(TipoMedida)
     tipo_almacen = models.ForeignKey(TipoAlmacen)
@@ -50,7 +52,7 @@ class Almacen(models.Model):
 
 
 class Inventario(models.Model):
-    catalogo_de_bien = models.ForeignKey(CatalogoDeBien)
+    catalogo_de_bien = models.ForeignKey(CatalogoBien)
     descripcion = models.TextField()
 
     def __str__(self):

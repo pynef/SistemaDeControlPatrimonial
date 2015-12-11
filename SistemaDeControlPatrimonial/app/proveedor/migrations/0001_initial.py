@@ -8,9 +8,9 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('recursos_humanos', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('institucion', '0001_initial'),
+        ('RecursosHumanos', '0001_initial'),
+        ('Institucion', '0001_initial'),
     ]
 
     operations = [
@@ -28,8 +28,8 @@ class Migration(migrations.Migration):
                 ('update_at', models.DateTimeField(auto_now=True)),
                 ('workstation_name', models.CharField(max_length=64, null=True, blank=True)),
                 ('workstation_ip', models.CharField(max_length=64, null=True, blank=True)),
-                ('duenio', models.ForeignKey(to='recursos_humanos.Persona')),
-                ('institucion', models.ForeignKey(to='institucion.Institucion')),
+                ('duenio', models.ForeignKey(to='RecursosHumanos.Persona')),
+                ('institucion', models.ForeignKey(to='Institucion.Institucion')),
                 ('user', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True)),
             ],
             options={
@@ -45,8 +45,8 @@ class Migration(migrations.Migration):
                 ('operador', models.CharField(max_length=1)),
                 ('descriptor', models.CharField(max_length=32, null=True, blank=True)),
                 ('create_at', models.DateTimeField(auto_now=True, null=True)),
-                ('institucion', models.ForeignKey(to='institucion.Institucion')),
-                ('proveedor', models.ForeignKey(to='proveedor.Proveedor')),
+                ('institucion', models.ForeignKey(to='Institucion.Institucion')),
+                ('proveedor', models.ForeignKey(to='Proveedor.Proveedor')),
             ],
             options={
                 'db_table': 'ProveedorTelefonos',

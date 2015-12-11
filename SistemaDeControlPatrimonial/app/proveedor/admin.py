@@ -2,8 +2,8 @@ import socket
 from django.contrib import admin
 
 
-from SistemaDeControlPatrimonial.app.proveedor.models import Proveedor
-from SistemaDeControlPatrimonial.app.proveedor.models import ProveedorTelefonos
+from SistemaDeControlPatrimonial.app.Proveedor.models import Proveedor
+from SistemaDeControlPatrimonial.app.Proveedor.models import ProveedorTelefonos
 
 
 admin.site.register(Proveedor)

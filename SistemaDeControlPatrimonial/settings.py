@@ -38,12 +38,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'SistemaDeControlPatrimonial.app.bienes',
-    'SistemaDeControlPatrimonial.app.catalogo_bienes',
-    'SistemaDeControlPatrimonial.app.contabilidad',
-    'SistemaDeControlPatrimonial.app.institucion',
-    'SistemaDeControlPatrimonial.app.proveedor',
-    'SistemaDeControlPatrimonial.app.recursos_humanos',
+    'SistemaDeControlPatrimonial.app.Bienes',
+    'SistemaDeControlPatrimonial.app.CatalogoBienes',
+    'SistemaDeControlPatrimonial.app.Contabilidad',
+    'SistemaDeControlPatrimonial.app.Institucion',
+    'SistemaDeControlPatrimonial.app.Proveedor',
+    'SistemaDeControlPatrimonial.app.RecursosHumanos',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class TipoAmbiente(models.Model):
     nombre = models.CharField(max_length=15)
-    descripcion = models.TextField()
+    descripcion = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return '{0}'.format(self.nombre)
@@ -40,7 +40,7 @@ class Institucion(models.Model):
 class Sede(models.Model):
     institucion = models.ForeignKey(Institucion)
     nombre = models.CharField(max_length=64)
-    descripcion = models.TextField()
+    descripcion = models.TextField(blank=True, null=True)
     ubicacion = models.CharField(max_length=6)
     is_active = models.BooleanField(default=True)
     create_at = models.DateTimeField(auto_now=True)
@@ -61,8 +61,8 @@ class Local(models.Model):
     institucion = models.ForeignKey(Institucion)
     sede = models.ForeignKey(Sede)
     nombre = models.CharField(max_length=64)
-    descripcion = models.TextField()
-    ubicacion = models.CharField(max_length=6)
+    descripcion = models.TextField(blank=True, null=True)
+    ubicacion = models.CharField(max_length=6,blank=True, null=True)
     direccion = models.CharField(max_length=128)
     is_active = models.BooleanField(default=True)
     create_at = models.DateTimeField(auto_now=True)
@@ -86,10 +86,10 @@ class Ambiente(models.Model):
     tipo_ambiente = models.ForeignKey(TipoAmbiente)
     piso = models.IntegerField()
     nombre = models.CharField(max_length=64)
-    capacidad = models.IntegerField()
-    capacidad_adicional = models.IntegerField()
+    capacidad = models.IntegerField(blank=True, null=True)
+    capacidad_adicional = models.IntegerField(blank=True, null=True)
     observacion = models.TextField(blank=True, null=True)
-    is_aula = models.NullBooleanField()
+    is_aula = models.NullBooleanField(default=False)
     is_active = models.BooleanField(default=True)
     create_at = models.DateTimeField(auto_now=True)
     update_at = models.DateTimeField(auto_now=True)

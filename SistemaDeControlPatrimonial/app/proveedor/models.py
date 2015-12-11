@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-from SistemaDeControlPatrimonial.app.institucion.models import Institucion
-from SistemaDeControlPatrimonial.app.institucion.models import Sede
-from SistemaDeControlPatrimonial.app.institucion.models import Local
-from SistemaDeControlPatrimonial.app.institucion.models import Ambiente
-from SistemaDeControlPatrimonial.app.recursos_humanos.models import Persona
+from SistemaDeControlPatrimonial.app.Institucion.models import Institucion
+from SistemaDeControlPatrimonial.app.Institucion.models import Sede
+from SistemaDeControlPatrimonial.app.Institucion.models import Local
+from SistemaDeControlPatrimonial.app.Institucion.models import Ambiente
+from SistemaDeControlPatrimonial.app.RecursosHumanos.models import Persona
 
 
 """Proveedores"""

@@ -18,10 +18,10 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('piso', models.IntegerField()),
                 ('nombre', models.CharField(max_length=64)),
-                ('capacidad', models.IntegerField()),
-                ('capacidad_adicional', models.IntegerField()),
+                ('capacidad', models.IntegerField(null=True, blank=True)),
+                ('capacidad_adicional', models.IntegerField(null=True, blank=True)),
                 ('observacion', models.TextField(null=True, blank=True)),
-                ('is_aula', models.NullBooleanField()),
+                ('is_aula', models.NullBooleanField(default=False)),
                 ('is_active', models.BooleanField(default=True)),
                 ('create_at', models.DateTimeField(auto_now=True)),
                 ('update_at', models.DateTimeField(auto_now=True)),
@@ -59,15 +59,15 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nombre', models.CharField(max_length=64)),
-                ('descripcion', models.TextField()),
-                ('ubicacion', models.CharField(max_length=6)),
+                ('descripcion', models.TextField(null=True, blank=True)),
+                ('ubicacion', models.CharField(max_length=6, null=True, blank=True)),
                 ('direccion', models.CharField(max_length=128)),
                 ('is_active', models.BooleanField(default=True)),
                 ('create_at', models.DateTimeField(auto_now=True)),
                 ('update_at', models.DateTimeField(auto_now=True)),
                 ('workstation_name', models.CharField(max_length=64, null=True, blank=True)),
                 ('workstation_ip', models.CharField(max_length=64, null=True, blank=True)),
-                ('institucion', models.ForeignKey(to='institucion.Institucion')),
+                ('institucion', models.ForeignKey(to='Institucion.Institucion')),
             ],
             options={
                 'db_table': 'Local',
@@ -79,14 +79,14 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nombre', models.CharField(max_length=64)),
-                ('descripcion', models.TextField()),
+                ('descripcion', models.TextField(null=True, blank=True)),
                 ('ubicacion', models.CharField(max_length=6)),
                 ('is_active', models.BooleanField(default=True)),
                 ('create_at', models.DateTimeField(auto_now=True)),
                 ('update_at', models.DateTimeField(auto_now=True)),
                 ('workstation_name', models.CharField(max_length=64, null=True, blank=True)),
                 ('workstation_ip', models.CharField(max_length=64, null=True, blank=True)),
-                ('institucion', models.ForeignKey(to='institucion.Institucion')),
+                ('institucion', models.ForeignKey(to='Institucion.Institucion')),
                 ('user', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True)),
             ],
             options={
@@ -99,7 +99,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nombre', models.CharField(max_length=15)),
-                ('descripcion', models.TextField()),
+                ('descripcion', models.TextField(null=True, blank=True)),
             ],
             options={
                 'db_table': 'TipoAmbiente',
@@ -109,7 +109,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='local',
             name='sede',
-            field=models.ForeignKey(to='institucion.Sede'),
+            field=models.ForeignKey(to='Institucion.Sede'),
         ),
         migrations.AddField(
             model_name='local',
@@ -119,22 +119,22 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ambiente',
             name='institucion',
-            field=models.ForeignKey(to='institucion.Institucion'),
+            field=models.ForeignKey(to='Institucion.Institucion'),
         ),
         migrations.AddField(
             model_name='ambiente',
             name='local',
-            field=models.ForeignKey(to='institucion.Local'),
+            field=models.ForeignKey(to='Institucion.Local'),
         ),
         migrations.AddField(
             model_name='ambiente',
             name='sede',
-            field=models.ForeignKey(to='institucion.Sede'),
+            field=models.ForeignKey(to='Institucion.Sede'),
         ),
         migrations.AddField(
             model_name='ambiente',
             name='tipo_ambiente',
-            field=models.ForeignKey(to='institucion.TipoAmbiente'),
+            field=models.ForeignKey(to='Institucion.TipoAmbiente'),
         ),
         migrations.AddField(
             model_name='ambiente',

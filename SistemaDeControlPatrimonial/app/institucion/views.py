@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from SistemaDeControlPatrimonial.app.institucion.serializers import InstitucionSerializer
-from SistemaDeControlPatrimonial.app.institucion.models import Institucion, Sede
+from SistemaDeControlPatrimonial.app.Institucion.serializers import InstitucionSerializer
+from SistemaDeControlPatrimonial.app.Institucion.models import Institucion, Sede
 
 class Instituciones(APIView):
 	serializer_class = InstitucionSerializer

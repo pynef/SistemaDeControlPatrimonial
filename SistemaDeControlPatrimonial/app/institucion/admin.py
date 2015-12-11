@@ -1,10 +1,10 @@
 import socket
 from django.contrib import admin
-from SistemaDeControlPatrimonial.app.institucion.models import TipoAmbiente
-from SistemaDeControlPatrimonial.app.institucion.models import Institucion
-from SistemaDeControlPatrimonial.app.institucion.models import Sede
-from SistemaDeControlPatrimonial.app.institucion.models import Local
-from SistemaDeControlPatrimonial.app.institucion.models import Ambiente
+from SistemaDeControlPatrimonial.app.Institucion.models import TipoAmbiente
+from SistemaDeControlPatrimonial.app.Institucion.models import Institucion
+from SistemaDeControlPatrimonial.app.Institucion.models import Sede
+from SistemaDeControlPatrimonial.app.Institucion.models import Local
+from SistemaDeControlPatrimonial.app.Institucion.models import Ambiente
 
 
 
